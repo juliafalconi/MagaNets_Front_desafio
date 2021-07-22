@@ -35,3 +35,6 @@ relevante;
 - Esperamos que o layout fique o máximo possível perto do 
 desenho e que esteja flexível (responsivo) conforme a largura 
 da tela;
+
+### Deploy link:
+https://juliafalconi.github.io/MagaNets_Front_desafio/
