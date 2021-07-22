@@ -8,20 +8,15 @@ import {
   Box,
   Grid,
   alpha,
-
 } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-
 import PhoneIcon from '@material-ui/icons/Phone';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import MenuBar from './MenuBar';
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,9 +97,6 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
-
-
 function ListaDeDesejos () {
   const classes = useStyles();
   const [favorites, setFavorites] = useState( JSON.parse(localStorage.getItem ("wishList")) || [] );
@@ -112,7 +104,6 @@ function ListaDeDesejos () {
   function favorite (product){
     const prevProducts = JSON.parse(localStorage.getItem ("wishList")) || []
     const alreadyExist = prevProducts.some( (item) => (item.id===product.id) )
-    console.log (alreadyExist)
     if (alreadyExist){
       const newList = (prevProducts.filter((item) => (item.id!==product.id)))
       localStorage.setItem ("wishList", JSON.stringify(newList))
@@ -123,8 +114,6 @@ function ListaDeDesejos () {
       localStorage.setItem ("wishList", JSON.stringify(newList))
       setFavorites(newList)
     }
-  
-
   };
 
   return (
@@ -132,88 +121,65 @@ function ListaDeDesejos () {
     <MenuBar color='secondary' className={classes.appBar}>
       <Toolbar>
         <div className={classes.menuIcon}/>
-        
         <Button color= 'inherit'
           startIcon={<FavoriteIcon />}
-          Typography variant='h3'
-          
-          >
+          Typography variant='h3'>
           MagaNets
-      
-         
         </Button>
-     
         <IconButton
           edge='start'
           className={classes.menuIcon}
-          aria-label='menu'
-        >
+          aria-label='menu'>
         </IconButton>
         <div className={classes.grow} />
-
          <Button color = 'inherit' 
-          startIcon={<LocationOnIcon />}
-
-        >
+          startIcon={<LocationOnIcon />}>
         Cidade: São Paulo
         </Button>
         <div className={classes.grow} />
         <Button color =  'inherit'
-          startIcon={<PhoneIcon />}
-
-        >
+          startIcon={<PhoneIcon />}>
          Central de atendimento
         </Button>
         <div className={classes.grow} />
         <Button color= 'inherit'
-          startIcon={<FavoriteIcon />}
-
-        >
+          startIcon={<FavoriteIcon />}>
          Lista de desejos
         </Button>
       </Toolbar>
     </MenuBar>
     <Box display='flex'>
-  
-
       <Box p={8}>
         <Toolbar />
         <Typography
           variant='h5'
           color='textPrimary'
           style={{ fontStyle: 'bold',
-           fontWeight: 600 }}
-        >
+           fontWeight: 600 }}>
           Home - Lista de desejos
         </Typography>
-
         <Grid container spacing={4}>
           {favorites.map((item, index) => (
             <Grid item lg={3} md={4} sm={6} xs={12}>
               <Box>
               <FormControlLabel checked = {favorites.some( (product) => (item.id===product.id))} onChange ={() => favorite (item)}
-      control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} name="checkedH" />}
-
-    /> 
+      control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} name="checkedH" />}/> 
                 <img
                   style={{ width: '100%' }}
                   alt={item.title}
-                  src={item.image}
-                />
+                  src={item.image}/>
                 <Box>
                   <Typography
                     style={{ fontWeight: 600 }}
                     gutterBottom
                     variant='body1'
-                    color='textPrimary'
-                  >
+                    color='textPrimary'>
                     {item.title}
                   </Typography>
                   <Typography
                     display='block'
                     variant='body2'
-                    color='textSecondary'
-                  >
+                    color='textSecondary'>
                     {item.channel}
                   </Typography>
                   <Typography variant='body2' color='textSecondary'>
@@ -229,6 +195,5 @@ function ListaDeDesejos () {
   </div>
 );
 }
-
 
 export default ListaDeDesejos;
