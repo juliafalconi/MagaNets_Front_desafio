@@ -1,16 +1,11 @@
 import React  from 'react';
 import { ThemeProvider, createTheme, makeStyles } from '@material-ui/core';
-
 import Home from './Home';
 import ListaDeDesejos from './ListaDeDesejos';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const useStyles = makeStyles({
-  root: {},
-});
 
 function App() {
-
   const theme = createTheme({
     spacing: 4,
     palette: {
@@ -19,9 +14,7 @@ function App() {
       },
       secondary: {
         main: '#6d1b7b',
-      },
-      
-      
+      }, 
     },
   });
   

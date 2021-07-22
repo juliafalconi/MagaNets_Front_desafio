@@ -99,8 +99,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   const classes = useStyles();
-  const theme = useTheme();
-  const history = useHistory();
   const [products, setProducts] = useState([]);
   const [favorites, setFavorites] = useState( JSON.parse(localStorage.getItem ("wishList")) || [] );
 
