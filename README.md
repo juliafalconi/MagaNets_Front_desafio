@@ -36,5 +36,3 @@ relevante;
 desenho e que esteja flexível (responsivo) conforme a largura 
 da tela;
 
-### Deploy link:
-https://juliafalconi.github.io/MagaNets_Front_desafio/
